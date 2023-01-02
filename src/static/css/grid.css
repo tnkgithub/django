@@ -1,0 +1,18 @@
+figure {
+    display: inline-block;
+    margin: 0px 3px 7px 0px;
+    background-color: #ccc;
+}
+figure img {
+    display: block;
+    margin: 0px 0px 3px 0px;
+}
+figcaption {
+    font-size: 0.3em;
+    text-align: center;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(54, 1fr);
+}

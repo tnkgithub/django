@@ -1,0 +1,15 @@
+.base {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+.menu {
+    width: 5%;
+}
+.som {
+    width: 55%;
+}
+.archive {
+    width: 40%;
+}
