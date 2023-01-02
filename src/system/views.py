@@ -1,13 +1,14 @@
+
 from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_exempt
 import pandas as pd
 
-
-df_imageSOM_result = pd.read_csv('/home/b1019035/python/gra_study/result_image_SOM20221225_230246.csv', index_col=0)
-list_imageSOM_result = df_imageSOM_result.to_numpy().tolist()
-
-img_title = []
-img_title = sum(list_imageSOM_result, [])
+som = pd.read_csv('/home/b1019035/django/src/system/image_som_result.csv', index_col=0)
+list_som = []
+for i in som.index:
+    list_som.append(i)
+title = pd.read_csv('/home/b1019035/django/src/system/imageName_title_rename_dict.csv', index_col=0).to_dict()
+links = pd.read_csv('/home/b1019035/django/src/system/imageName_link_rename_dict.csv', index_col=0).to_dict()
 
 @xframe_options_exempt
 # Create your views here.
@@ -19,7 +20,10 @@ def imgSOMView(request):
 
 def SOM(request):
     ctx = {}
-    ctx["som_image_list"] = img_title
+    ctx["title"] = title['col2']
+    ctx["links"] = links['col2']
+    ctx["som"] = list_som
+    ctx["example"] = {'a.a':'a.a'}
     return render(request, 'system/som.html', ctx)
 
 def menu(request):
