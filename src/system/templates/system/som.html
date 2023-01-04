@@ -1,5 +1,5 @@
-
 {% load static %}
+{% load getValue %}
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -11,14 +11,20 @@
         <link href="{% static 'css/grid.css' %}" rel="stylesheet" type="text/css">
     </head>
     <body>
-    <p>[check!!!]</p>
-        {% for i in som %}
-            {% if i!=1 %}
-                {% with imgName=i  %}{% endwith %}
-                <p>{{i}}</p>
-                <img src=imgName alt="写真">
-            {% endif %}
-        {% endfor %}
+        <div id="container">
+                {% for i in som %}
+                    {% if i != '1' %}
+                        <figure>
+                            <a href={% get_value links i %} target="arc">
+                            <img src={{ "/media/images/"|add:i }} alt="写真" class="scale-img" draggable="false">
+                            </a>
+                            <figcaption>{% get_value title i %}</figcaption>
 
+                        </figure>
+                    {% else %}
+                        <div></div>
+                    {% endif %}
+                {% endfor %}
+        </div>
     </body>
 </html>

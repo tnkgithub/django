@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_exempt
 import pandas as pd
 
+
 som = pd.read_csv('/home/b1019035/django/src/system/image_som_result.csv', index_col=0)
 list_som = []
 for i in som.index:
