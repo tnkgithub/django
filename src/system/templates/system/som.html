@@ -15,7 +15,7 @@
                 {% for i in som %}
                     {% if i != '1' %}
                         <figure>
-                            <a href={% get_value links i %} target="arc">
+                            <a href={% get_value links i %} target="arc" id={{ "Image"|add:i }}>
                             <img src={{ "/media/images/"|add:i }} alt="写真" class="scale-img" draggable="false">
                             </a>
                             <figcaption>{% get_value title i %}</figcaption>
