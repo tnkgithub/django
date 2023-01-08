@@ -13,7 +13,7 @@ list_title = []
 for i in title_som.index:
     list_title.append(i)
 
-represent_image = pd.read_csv('system/rep_image_som_result20230110_074141.csv', index_col=0)
+represent_image = pd.read_csv('system/rep_image_som_result20230110_074141_4-3.csv', index_col=0)
 rep_image = []
 for i in represent_image.index:
     rep_image.append(i)
