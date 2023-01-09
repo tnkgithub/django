@@ -30,7 +30,7 @@ class LinkResource(resources.ModelResource):
         fields = ('id', 'image_name', 'link')
         import_id_fields = ['id']
 
-@admin.register(ImageLinkModel)
+
 
 class LinkAdmin(ImportExportMixin, admin.ModelAdmin):
     list_display  = (
@@ -41,4 +41,4 @@ class LinkAdmin(ImportExportMixin, admin.ModelAdmin):
     resource_class = LinkResource
     formats = [base_formats.CSV]
 
-#admin.site.register(ImageLinkModel, LinkAdmin)
+admin.site.register(ImageLinkModel, LinkAdmin)

@@ -1,4 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load getValue %}
+
+{% block link %}
+<link href="{% static 'css/for_rep_som.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
 
 {% block content %}
+<div id="container">
+    {% for i in rep_image %}
+        {% if i != '1' %}
+            <figure>
+
+                <a onClick="location.href='./main?id={{ i }}'">
+                <img src={{ "/media/images/"|add:i }} alt="写真" class="scale-img" draggable="false">
+                </a>
+                <!--<figcaption>{% get_value image_title i %}</figcaption>-->
+            </figure>
+        {% else %}
+            <div></div>
+        {% endif %}
+    {% endfor %}
+</div>
 {% endblock %}

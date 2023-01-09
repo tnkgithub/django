@@ -1,0 +1,24 @@
+figure {
+    display: inline-block;
+    margin: 0px 3px 3px 0px;
+    background-color: #ccc;
+}
+figure img {
+    display: block;
+    margin: 0px 0px 3px 0px;
+}
+figcaption {
+    font-size: 0.8em;
+    text-align: center;
+}
+.scale-img {
+    transition-duration: 0.1s; /*変化の時間*/
+}
+.scale-img:hover {
+    transform: scale(1.1,1.1); /*画像の拡大*/
+    cursor: pointer; /*カーソルをポインターにする*/
+}
+#container{
+    display: grid;
+    grid-template-columns: repeat(66, 1fr);
+}

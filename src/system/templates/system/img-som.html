@@ -1,19 +1,40 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block link %}
-<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
-{% endblock %}
+{% load getValue %}
+<!DOCTYPE html>
+<html lang="ja">
 
-{% block content %}
-<div class="base">
-    <div class="menu">
-        <iframe src="menu.html" width="100%" height="100%"></iframe>
-    </div>
-    <div class="som">
-        <iframe src="som.html" name="somFrame" width="100%" height="100%"></iframe>
-    </div>
-    <div class="archive">
-        <iframe src="http://archives.c.fun.ac.jp/" name="arc" width="100%" height="100%"></iframe>
-    </div>
-</div>
-{% endblock %}
+    <head>
+        <meta charset="utf-8" />
+
+        <meta name="vieport" content="width=device-width"/>
+        <title></title>
+
+
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+        <script>
+            function openWindow(){
+                query = location.search.substring(1);
+                param = query.split('=')
+                id = param[1];
+                url = './som#' + id;
+                window.open(url, 'somFrame');
+            }
+            </script>
+    </head>
+
+    <body onload="openWindow();">
+        <div class="base">
+            <div class="class_menu">
+                <iframe src="menu" width="100%" height="100%"></iframe>
+            </div>
+            <div class="class_som">
+                <iframe name="somFrame" width="100%" height="100%"></iframe>
+            </div>
+            <div class="archive">
+                {% autoescape off %}
+                <iframe src="http://archives.c.fun.ac.jp/fronts/index/poster" name="explanation" width="100%" height="100%"></iframe>
+                {% endautoescape %}
+            </div>
+        </div>
+    </body>
+</html>
