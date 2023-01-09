@@ -35,7 +35,7 @@ def electionView(request):
 def imgSOMView(request):
     ctx = {}
     ctx["links"] = links['col2']
-    if "id" in request.GET:
+    if "coordinate" in request.GET:
         ctx = request.GET
     return render(request, 'system/img-som.html', ctx)
 
@@ -44,6 +44,8 @@ def SOM(request):
     ctx["image_title"] = image_title['col2']
     ctx["links"] = links['col2']
     ctx["image_som"] = list_som
+    if "coordinate" in request.GET:
+        ctx = request.GET
     return render(request, 'system/som.html', ctx)
 
 def menu(request):

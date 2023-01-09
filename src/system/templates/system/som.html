@@ -13,8 +13,20 @@
         <title></title>
         <link href="{% static 'css/for_image_som.css' %}" rel="stylesheet" type="text/css">
 
+        <!--
+        <script>
+            function scrolltoid() {
+                id = location.search.substring(1);
+                element = document.getElementById(id);
+                element.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }
+        </script>
+        -->
+
     </head>
-    <body onload="">
+    <body>
+        <!--onload="scrolltoid()"
+        <p>{{coordinate}}</p>-->
         <div id="container">
             {% for i in image_som %}
                 {% if i != '1' %}

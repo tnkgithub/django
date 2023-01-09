@@ -12,7 +12,10 @@
         {% if i != '1' %}
             <figure>
 
-                <a onClick="location.href='./main?id={{ i }}'">
+                <a onClick="location.href='./main?coordinate={{ i }}'">
+                <!--
+                <a href="main?coordinate={{i}}", target="_self">
+                -->
                 <img src={{ "/media/images/"|add:i }} alt="写真" class="scale-img" draggable="false">
                 </a>
                 <!--<figcaption>{% get_value image_title i %}</figcaption>-->
