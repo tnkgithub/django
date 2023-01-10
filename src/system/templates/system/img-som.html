@@ -19,12 +19,29 @@
 
                 //url = './som?' + 'coordinate=' + id;
                 url = './som#' + id;
+
                 window.open(url, 'somFrame');
+
+                //element = document.getElementById(id)
+                /*
+                rect = element.getBoundingClientRect();
+                var x1 = rect.top + window.pageYOffset;
+                var y1 = rect.left + window.pageXOffset;
+
+                //element.scrollTo(rect.top, rect.left)
+
+
+
+                element.scrollIntoView({
+                    behavior: smooth;
+                    block: center;
+                })
+                */
             }
             </script>
     </head>
 
-    <body onload="openWindow();">
+    <body  onload="openWindow();">
         <div class="base">
             <div class="class_menu">
                 <iframe src="menu" width="100%" height="100%"></iframe>
@@ -33,7 +50,7 @@
                 <iframe name="somFrame" width="100%" height="100%"></iframe>
             </div>
             <div class="archive">
-                <iframe src="http://archives.c.fun.ac.jp/fronts/index/poster" name="explanation" width="100%" height="100%"></iframe>
+                <iframe src={% get_value links id %} name="explanation" width="100%" height="100%"></iframe>
             </div>
         </div>
     </body>

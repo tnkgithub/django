@@ -3,17 +3,17 @@ from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_exempt
 import pandas as pd
 
-som = pd.read_csv('system/image_som_result20230107_121146.csv', index_col=0)
+som = pd.read_csv('system/image_som_result20230110_073816.csv', index_col=0)
 list_som = []
 for i in som.index:
     list_som.append(i)
 
-title_som = pd.read_csv('system/title_som_result.csv', index_col=0)
+title_som = pd.read_csv('system/title_som_result20230110_092259.csv', index_col=0)
 list_title = []
 for i in title_som.index:
     list_title.append(i)
 
-represent_image = pd.read_csv('system/rep_image_som_result20230108_170422.csv', index_col=0)
+represent_image = pd.read_csv('system/rep_image_som_result20230110_074141.csv', index_col=0)
 rep_image = []
 for i in represent_image.index:
     rep_image.append(i)
@@ -36,7 +36,10 @@ def imgSOMView(request):
     ctx = {}
     ctx["links"] = links['col2']
     if "coordinate" in request.GET:
-        ctx = request.GET
+        id_list = request.GET["coordinate"]
+        id_split = id_list.split(' ')
+        id = id_split[0]
+        ctx["id"] = id
     return render(request, 'system/img-som.html', ctx)
 
 def SOM(request):
