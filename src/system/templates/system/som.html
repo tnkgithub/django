@@ -18,16 +18,21 @@
                 e = window.event;
                 elem = e.target || e.srcElemnt;
                 elemID = elem.id;
-                url = 'main?imageID=' + elemID + "&frame=som";
-                window.open(url, "_parent")
+
+                url = 'main?imageID=' + elemID + '&frame=som';
+                window.open(url, "_parent");
+            }
+            function openMenu() {
+                menu_window = window.parent.document.getElementsByTagName("menu")[0].contentWindow;
+                menu_url = 'menu?imageID=' + elemID;
+                window.open(menu_url, menu_window);
             }
 
             function scrollToImage() {
-                query = parent.location.search.substring(1);
+                query = location.search.substring(1);
                 param_list = query.split('&')
                 paramater = param_list[0].split('=');
                 id = paramater[1];
-
                 element = document.getElementById(id);
                 element.scrollIntoView({
                     behavior: "smooth",
@@ -44,9 +49,9 @@
                 {% if i != '1' %}
                     <figure>
                         <a href={% get_value links i %}  onclick="getID()" target="explanation" >
-                            <img src={{ "/media/images/"|add:i }} alt="写真" class="scale-img" id="{{ i }}">
-                        </a>
+                        <img src={{ "/media/images/"|add:i }} alt="写真" class="scale-img" id="{{ i }}">
                         <!--<figcaption>{% get_value image_title i %}</figcaption>-->
+                        </a>
                     </figure>
                 {% else %}
                     <div></div>

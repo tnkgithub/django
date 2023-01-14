@@ -16,10 +16,10 @@
     <body>
         <div class="base">
             <div class="class_menu">
-                <iframe src="menu?imageID={{imageID}}" width="100%" height="100%"></iframe>
+                <iframe src="menu?imageID={{imageID}}" name="menu" width="100%" height="100%"></iframe>
             </div>
             <div class="class_som">
-                <iframe src="som" name="somFrame" width="100%" height="100%"></iframe>
+                <iframe src="{{frame}}?imageID={{imageID}}" name="somFrame" width="100%" height="100%"></iframe>
             </div>
             <div class="archive">
                 <iframe src={% get_value links imageID %} name="explanation" width="100%" height="100%"></iframe>
