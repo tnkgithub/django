@@ -10,15 +10,17 @@
 <div id="container">
     {% for i in rep_image %}
         {% if i != '1' %}
-            <figure>
+            <figure class="css-fukidashi">
 
-                <a onClick="location.href='./main?coordinate={{ i }}'">
+                <a onClick="location.href='./main?imageID={{ i }}'">
                 <!--
                 <a href="main?coordinate={{i}}", target="_self">
                 -->
-                <img src={{ "/media/images/"|add:i }} alt="写真" class="scale-img" draggable="false">
+
+                <img src={{ "/media/images/"|add:i }} alt="写真" title={% get_value image_title i %}>
                 </a>
-                <figcaption>{% get_value image_title i %}</figcaption>
+                <!--<figcaption><p>{% get_value image_title i %}</p></figcaption>-->
+                <p class="fukidashi">{% get_value image_title i %}</p>
             </figure>
         {% else %}
             <div></div>

@@ -20,5 +20,5 @@ figcaption {
 }
 #container{
     display: grid;
-    grid-template-columns: repeat(66, 1fr);
+    grid-template-columns: repeat(11, 1fr);
 }

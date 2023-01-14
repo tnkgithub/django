@@ -132,4 +132,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # 画像をdjango側で読み込むための設定
 MEDIA_URL = 'media/'
 
-X_FRAME_OPTIONS = 'ALLOW'
+X_FRAME_OPTIONS = 'SAMEORIGIN'

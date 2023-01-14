@@ -13,28 +13,40 @@
         <title></title>
         <link href="{% static 'css/for_image_som.css' %}" rel="stylesheet" type="text/css">
 
-        <!--
         <script>
-            function scrolltoid() {
-                id = location.search.substring(1);
+            function getID() {
+                e = window.event;
+                elem = e.target || e.srcElemnt;
+                elemID = elem.id;
+                url = 'main?imageID=' + elemID + "&frame=som";
+                window.open(url, "_parent")
+            }
+
+            function scrollToImage() {
+                query = parent.location.search.substring(1);
+                param_list = query.split('&')
+                paramater = param_list[0].split('=');
+                id = paramater[1];
+
                 element = document.getElementById(id);
-                element.scrollIntoView({behavior: 'smooth', block: 'center'});
+                element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                    inline: "center"
+                });
             }
         </script>
-        -->
 
     </head>
-    <body>
-        <!--onload="scrolltoid()"
-        <p>{{coordinate}}</p>-->
+    <body onload="scrollToImage()">
         <div id="container">
             {% for i in image_som %}
                 {% if i != '1' %}
                     <figure>
-                        <a href={% get_value links i %}  target="explanation" id={{ i }}>
-                            <img src={{ "/media/images/"|add:i }} alt="写真" class="scale-img" draggable="false">
+                        <a href={% get_value links i %}  onclick="getID()" target="explanation" >
+                            <img src={{ "/media/images/"|add:i }} alt="写真" class="scale-img" id="{{ i }}">
                         </a>
-                        <figcaption>{% get_value image_title i %}</figcaption>
+                        <!--<figcaption>{% get_value image_title i %}</figcaption>-->
                     </figure>
                 {% else %}
                     <div></div>

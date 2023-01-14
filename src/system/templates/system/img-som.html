@@ -11,46 +11,18 @@
 
 
         <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
-        <script>
-            function openWindow(){
-                query = location.search.substring(1);
-                paramater = query.split('=')
-                id = paramater[1]
-
-                //url = './som?' + 'coordinate=' + id;
-                url = './som#' + id;
-
-                window.open(url, 'somFrame');
-
-                //element = document.getElementById(id)
-                /*
-                rect = element.getBoundingClientRect();
-                var x1 = rect.top + window.pageYOffset;
-                var y1 = rect.left + window.pageXOffset;
-
-                //element.scrollTo(rect.top, rect.left)
-
-
-
-                element.scrollIntoView({
-                    behavior: smooth;
-                    block: center;
-                })
-                */
-            }
-            </script>
     </head>
 
-    <body  onload="openWindow();">
+    <body>
         <div class="base">
             <div class="class_menu">
-                <iframe src="menu" width="100%" height="100%"></iframe>
+                <iframe src="menu?imageID={{imageID}}" width="100%" height="100%"></iframe>
             </div>
             <div class="class_som">
-                <iframe name="somFrame" width="100%" height="100%"></iframe>
+                <iframe src="som" name="somFrame" width="100%" height="100%"></iframe>
             </div>
             <div class="archive">
-                <iframe src={% get_value links id %} name="explanation" width="100%" height="100%"></iframe>
+                <iframe src={% get_value links imageID %} name="explanation" width="100%" height="100%"></iframe>
             </div>
         </div>
     </body>
