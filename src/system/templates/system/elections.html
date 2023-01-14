@@ -10,14 +10,14 @@
 <div id="container">
     {% for i in rep_image %}
         {% if i != '1' %}
-            <figure class="css-fukidashi">
+            <figure>
 
                 <a onClick="location.href='./main?imageID={{ i }}&frame=som'">
                 <!--
                 <a href="main?coordinate={{i}}", target="_self">
                 -->
 
-                <img src={{ "/media/images/"|add:i }} alt="写真" title={% get_value image_title i %}>
+                <img src={{ "/media/images/"|add:i }} alt="写真" class="scale-img" title={% get_value image_title i %}>
                 </a>
                 <!--<figcaption><p>{% get_value image_title i %}</p></figcaption>-->
                 <p class="fukidashi">{% get_value image_title i %}</p>

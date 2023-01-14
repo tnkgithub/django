@@ -120,12 +120,13 @@ def titleSOMView(request):
         id_list = request.GET["imageID"]
         id_split = id_list.split(' ')
         id = id_split[0]
-        ctx["title_list"] = spiral_list(sortForSimilarity(id))
+        ctx["title_list"] = spiral_list(id)
     return render(request, 'system/title-som.html', ctx)
 
-def sort_by_similarity(sorted_dict):
-    temporary_sorted_dict = sorted(sorted_dict.items(), reverse=True, key=lambda x:x[1])
-    sorted_dict.clear()
+#%%
+def sort_by_similarity(dict):
+    temporary_sorted_dict = sorted(dict.items(), reverse=True, key=lambda x:x[1])
+    sorted_dict = {}
     # 辞書をソート後に更新
     sorted_dict.update(temporary_sorted_dict)
     return sorted_dict
@@ -142,30 +143,26 @@ def sortForSimilarity(image):
     dict_title_image = title_image['col2']
     ''' 類似度を計算し、辞書を作成 '''
     for i in title_features.index:
-        # コサイン類似度を計算
-        sim = 1 - distance.cosine(title_features.loc[title].to_list(), title_features.loc[i].to_list())
-        # 画像ファイル名を探す
-        image_name = dict_title_image[i]
-        ''' 類似度が0.3以上のみにする '''
-        if sim >= 0.3:
-            # 辞書に追加
-            sorted_dict[image_name] = sim
-    # 辞書を類似度順にソートし、一時的に別の辞書に保管
-    #temporary_sorted_dict = sorted(sorted_dict.items(), reverse=True, key=lambda x:x[1])
-    #temporary_sorted_dict = sort_by_similarity(sorted_dict)
-    # 辞書の要素をすべて削除(そのままだと無駄な括弧が入るため)
-    #sorted_dict.clear()
-    # 辞書をソート後に更新
-    #sorted_dict.update(temporary_sorted_dict)
+        if i != title:
+            # コサイン類似度を計算
+            sim = 1 - distance.cosine(title_features.loc[title].to_list(), title_features.loc[i].to_list())
+            # 画像ファイル名を探す
+            image_name = dict_title_image[i]
+            ''' 類似度が0.3以上のみにする '''
+            if sim >= 0.35:
+                # 辞書に追加
+                sorted_dict[image_name] = sim
+
     sorted_dict = sort_by_similarity(sorted_dict)
-    sorted_list = []
+    sorted_list = [image]
     for key in sorted_dict.keys():
         sorted_list.append(key)
     return sorted_list
 
 #%%
-def spiral_list(sorted_list):
+def spiral_list(image):
 
+    sorted_list = sortForSimilarity(image)
 
     LOOP = 5
     WIDTH = (2*LOOP) + 1
@@ -210,5 +207,6 @@ def spiral_list(sorted_list):
         for j in range(len(toList)):
             if i == toList[j]:
                 image_list[j] = sorted_list[i]
+                print(i, image_list[j])
 
     return(image_list)
