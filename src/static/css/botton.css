@@ -1,4 +1,6 @@
-
+* {
+    overflow-y: scroll;
+}
 
 a.btn_01 {
 	display: block;
