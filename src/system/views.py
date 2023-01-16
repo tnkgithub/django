@@ -1,10 +1,11 @@
-#%%
 from django.shortcuts import render
 from django.views.decorators.clickjacking import xframe_options_exempt
 import pandas as pd
 import scipy.spatial.distance as distance
 import itertools
-#%%
+
+# 類似度の基準値
+similarity_standard_value = 0.45
 
 # 画像によるsom結果(扱いやすくするためリストに変換)
 som = pd.read_csv('system/csvs/image_som_result20230110_073816.csv', index_col=0)
@@ -148,8 +149,8 @@ def sortForSimilarity(image):
             sim = 1 - distance.cosine(title_features.loc[title].to_list(), title_features.loc[i].to_list())
             # 画像ファイル名を探す
             image_name = dict_title_image[i]
-            ''' 類似度が0.3以上のみにする '''
-            if sim >= 0.35:
+            ''' 類似度が基準値以上のみにする '''
+            if sim >= similarity_standard_value:
                 # 辞書に追加
                 sorted_dict[image_name] = sim
 

@@ -1,58 +1,59 @@
-/*まずはお決まりのボックスサイズ算出をborer-boxに */
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: inherit;
-    box-sizing: inherit;
-}
 
-html {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-size: 62.5%;/*rem算出をしやすくするために*/
-}
 
-.btn,
-a.btn,
-button.btn {
-    font-size: 1.0rem;
-    font-weight: 700;
-    line-height: 1.5;
+a.btn_01 {
+	display: block;
     position: relative;
-    display: inline-block;
-    padding: 1rem 4rem;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-    text-align: center;
-    vertical-align: middle;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    color: #212529;
-    border-radius: 0.5rem;
+	text-decoration: none;
+	width: 15%;
+	margin: auto;
+	padding: 1rem 1.21rem 1rem 1rem;
+	font-weight: bold;
+    font-size: 1em;
+	border: 2px solid #27acd9;
+	color: #27acd9;
+	transition: 0.5s;
+}
+a.btn_01:hover {
+	color: #fff;
+	background: #27acd9;
 }
 
-/*主な共通部分は省略*/
-
-a.btn--red.btn--cubic {
-    border-bottom: 2px solid #9f000c;
+a.btn_02 {
+	display: block;
+    position: relative;
+	text-decoration: none;
+	width: 15%;
+	margin: auto;
+	padding: 1rem 1.21rem 1rem 1rem;
+	font-weight: bold;
+    font-size: 1em;
+	border: 2px solid #d92727;
+	color: #d92727;
+	transition: 0.5s;
+}
+a.btn_02:hover {
+	color: #fff;
+	background: #d92727;
 }
 
-a.btn--red.btn--cubic:hover {
-    margin-top: 2px;
-    border-bottom: 1px solid #9f000c;
-}
-
-a.btn--radius {
-    border-radius: 100vh;
-}
-
-.fa-position-right {
+.fukidashi {
+    display: none;
     position: absolute;
-    top: calc(50% - .5em);
-    right: 1rem;
+    z-index: 100;
+    width: max-content;
+    left: 110%;
+    top: 20%;
+    padding: 16px;
+    border:1px solid #333;
+    border-radius: 2px;
+    background: rgb(255, 255, 255);
+    color: rgb(60, 60, 60);
+    font-weight: bold;
+    font-size: 0.5em;
 }
+/*
+a:hover .fukidashi {
+    display: block;
+    cursor: pointer;
+}
+*/

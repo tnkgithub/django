@@ -1,13 +1,12 @@
 figure {
     display: inline-block;
-    margin: 2px 2px 2px 2px;
+    margin: 1px 1px 1px 1px;
     background-color: rgb(241, 241, 241);
     border: 1px solid #ccc;
 }
 figure img {
     display: block;
     width: 100%;
-    height: auto;
     margin: 0px 0px 0px 0px;
 }
 figcaption {
@@ -23,7 +22,5 @@ figcaption {
 }
 #container{
     display: grid;
-    grid-template-columns: repeat(11, minmax(calc(100% / 11), 1fr));
-
-
+    grid-template-columns: repeat(11, 130px);
 }
