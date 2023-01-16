@@ -6,6 +6,7 @@
 }
 .class_menu {
     width: 5%;
+    overflow-y: scroll;
 }
 .class_som {
     width: 50%;
