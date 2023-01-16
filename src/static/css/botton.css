@@ -1,16 +1,13 @@
-* {
-    overflow-y: scroll;
-}
-
 a.btn_01 {
 	display: block;
-    position: relative;
+    position: flex;
+	text-align: center;
 	text-decoration: none;
-	width: 15%;
+	width: 20%;
 	margin: auto;
-	padding: 1rem 1.21rem 1rem 1rem;
+	padding: 1rem 1.21rem 1rem 0.8rem;
 	font-weight: bold;
-    font-size: 1em;
+    font-size: 1rem;
 	border: 2px solid #27acd9;
 	color: #27acd9;
 	transition: 0.5s;
@@ -22,13 +19,14 @@ a.btn_01:hover {
 
 a.btn_02 {
 	display: block;
-    position: relative;
+    position: flex;
+	text-align: center;
 	text-decoration: none;
 	width: 15%;
 	margin: auto;
-	padding: 1rem 1.21rem 1rem 1rem;
+	padding: 1rem 1.21rem 1rem 0.8rem;
 	font-weight: bold;
-    font-size: 1em;
+    font-size: 1rem;
 	border: 2px solid #d92727;
 	color: #d92727;
 	transition: 0.5s;

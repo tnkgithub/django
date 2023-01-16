@@ -137,5 +137,5 @@ figure img:hover + .fukidashi_up_right{
 
 #container{
     display: grid;
-    grid-template-columns: repeat(66, 130px);
+    grid-template-columns: repeat(66, 100px);
 }
