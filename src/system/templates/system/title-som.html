@@ -25,6 +25,13 @@
                 id = paramater[1];
 
                 element = document.getElementById(id);
+
+                if(element.style.borderWidth == "3px"){
+                    element.style.borderWidth = "0px";
+                }else{
+                    element.style.border = "solid 3px black";
+                }
+
                 element.scrollIntoView({
                     behavior: "smooth",
                     block: "center",

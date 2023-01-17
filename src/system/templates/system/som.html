@@ -28,7 +28,15 @@
                 param_list = query.split('&')
                 paramater = param_list[0].split('=');
                 id = paramater[1];
+
                 element = document.getElementById(id);
+
+                if(element.style.outlineWidth == "3px"){
+                    element.style.outlineWidth = "0px";
+                }else{
+                    element.style.outline = "solid 3px black";
+                }
+
                 element.scrollIntoView({
                     behavior: "smooth",
                     block: "center",
