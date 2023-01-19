@@ -110,11 +110,12 @@ def spiral_list(sorted_list):
     # 螺旋を表示する
     for i in range(len(sorted_list)):
         for j in range(len(toList)):
-            print(j, toList[j])
+
             if i == toList[j]:
+                print(j, toList[j])
                 image_list[j] = sorted_list[i]
 
     return(image_list)
 #%%
-print(spiral_list(sortForSimilarity('po00110100.jpg')))
+print(spiral_list(sortForSimilarity('po00140500.jpg')))
 # %%
